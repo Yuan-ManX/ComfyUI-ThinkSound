@@ -22,3 +22,16 @@ cd ComfyUI-ThinkSound
 pip install -r requirements.txt
 conda install -y -c conda-forge 'ffmpeg<7'
 ```
+
+
+
+## Model
+
+### Download Pretrained Models
+
+```
+# Download pretrained weights https://huggingface.co/liuhuadai/ThinkSound to Directory ckpts/
+# model weights can be also downloaded from https://www.modelscope.cn/models/iic/ThinkSound
+git lfs install
+git clone https://huggingface.co/liuhuadai/ThinkSound ckpts
+```
