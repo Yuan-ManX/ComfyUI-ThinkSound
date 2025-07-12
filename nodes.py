@@ -162,7 +162,7 @@ class LoadOThinkSoundVideo:
             }
         }
 
-    RETURN_TYPES = ("IMAGE",)
+    RETURN_TYPES = ("VIDEO",)
     RETURN_NAMES = ("video",)
     FUNCTION = "load_video"
     CATEGORY = "ThinkSound"
@@ -218,3 +218,27 @@ class LoadCoTDescription:
         
         return (description,)
                 
+
+class ThinkSound:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "video": ("VIDEO",),
+                "title": ("PROMPT",),
+                "description": ("PROMPT",),
+            }
+        }
+
+    RETURN_TYPES = ()
+    RETURN_NAMES = ()
+    FUNCTION = "generate"
+    CATEGORY = "ThinkSound"
+
+    def generate(self, video, title, description):
+        
+        use_half = False
+        
+        generate_audio(video, title, description, use_half)
+        
+        return ()
