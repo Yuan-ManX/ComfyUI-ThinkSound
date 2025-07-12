@@ -153,3 +153,68 @@ def generate_audio(video, title, description, use_half):
     yield "✅ Generation completed!", combined_video
 
 
+class LoadOThinkSoundVideo:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "video_path": ("STRING", {"default": "cat.png"}),
+            }
+        }
+
+    RETURN_TYPES = ("IMAGE",)
+    RETURN_NAMES = ("video",)
+    FUNCTION = "load_video"
+    CATEGORY = "ThinkSound"
+
+    def load_video(self, video_path):
+        video = video_path
+        
+        return (video,)
+
+
+class LoadCaption:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "text": ("STRING", {
+                    "default": "Printer Printing",
+                    "multiline": True
+                }),
+            }
+        }
+
+    RETURN_TYPES = ("PROMPT",)
+    RETURN_NAMES = ("title",)
+    FUNCTION = "load_prompt"
+    CATEGORY = "ThinkSound"
+
+    def load_prompt(self, text):
+        title = text
+        
+        return (title,)
+
+
+class LoadCoTDescription:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "text": ("STRING", {
+                    "default": "Generate a continuous printer printing sound with periodic beeps and paper movement, plus a cat pawing at the machine. Add subtle ambient room noise for authenticity, keeping the focus on printing, beeps, and the cat's interaction.",
+                    "multiline": True
+                }),
+            }
+        }
+
+    RETURN_TYPES = ("PROMPT",)
+    RETURN_NAMES = ("description",)
+    FUNCTION = "load_prompt"
+    CATEGORY = "ThinkSound"
+
+    def load_prompt(self, text):
+        description = text
+        
+        return (description,)
+                
